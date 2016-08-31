@@ -10,7 +10,7 @@ This guide is for people who don't like to read tons of words and just wanted to
 - `Container's unique name` is ued for initiation of interactive terminal session with any container.
 
 ### How to start containers 
-<pre>docker-compose up</pre>
+<pre>docker-compose up -d</pre>
 ### How to stop containers
 <pre>docker-compose stop</pre>
 ### How to restart containers
