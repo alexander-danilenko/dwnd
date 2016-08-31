@@ -1,0 +1,75 @@
+# Apache server.
+web:
+  hostname: web
+  image: blinkreaction/drupal-apache:2.2-stable
+  volumes:
+    - "./:/var/www"  # Map current directory to /var/www
+  links:
+    - cli
+  ports:
+    # Port forwarding will use your port in Windows. So be sure that you have nothing on 80 and 443 port.
+    # Usually these ports used by skype and `server` service in Windows.
+    - 80:80
+    - 443:443
+
+# CLI node.
+# Used for PHP-FPM, all console commands and tools.
+cli:
+  hostname: cli
+  image: blinkreaction/drupal-cli:stable
+  volumes:
+    - "./:/var/www"  # Map current directory to /var/www
+    # Add some custom configuration files.
+    - ".drude/etc/php5/php.ini:/etc/php5/fpm/conf.d/z_php.ini"      # PHP FPM configuration overrides
+    - ".drude/etc/php5/php-cli.ini:/etc/php5/cli/conf.d/z_php.ini"  # PHP CLI configuration overrides
+    # SSH keys mapping to containers ~/.ssh.
+    - ~/.ssh:/home/docker/.ssh
+  links:
+    - db
+    - memcached
+    - solr
+    - browser
+  environment:
+    # Optional. Specify a custom SSH RSA key name if necessary. Defaults to 'id_rsa'.
+    - SSH_KEY_NAME=id_rsa
+  #extra_hosts:
+  #  # Additional hosts that appears on /etc/hosts of container.
+  #  - "demo.dwnd.dev:192.168.0.101"
+
+# DB node
+db:
+  hostname: db
+  image: blinkreaction/drupal-mysql:5.5
+  ports:
+    # Port forwarding will use your port in Windows. So be sure that you have no MySQL running in Windows.
+    - 3306:3306
+  environment:
+    # MySQL credentials.
+    - MYSQL_ROOT_PASSWORD=admin123
+    - MYSQL_USER=drupal
+    - MYSQL_PASSWORD=123
+    - MYSQL_DATABASE=drupal
+  volumes:
+    # MySQL config.
+    - ".drude/etc/mysql/my.cnf:/etc/mysql/conf.d/z_my.cnf"  # MySQL configuration overrides
+
+# Selenium2
+browser:
+  hostname: browser
+  image: selenium/standalone-firefox:2.47.1
+
+# Solr node
+solr:
+  hostname: solr
+  image: blinkreaction/drupal-solr:3.x-stable
+
+# Memcached node
+# Uncomment the service definition section below and the link in the web service above to start using memcached.
+memcached:
+  hostname: memcached
+  image: memcached
+  environment:
+    # Memcached memory limit in megabytes
+    - MEMCACHED_MEMORY_LIMIT=128
+  ports:
+    - 11211:11211

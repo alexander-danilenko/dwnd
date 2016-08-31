@@ -1,0 +1,1 @@
+Place in this folder whatever you want and docker will use it as /var/www/docroot
