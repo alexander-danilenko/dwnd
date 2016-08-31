@@ -18,13 +18,14 @@ This project is just a working example of web developer's local environment base
 - For people who wants to use Docker as environment for local development but don't want to spend so much time for learning docker
 
 ### Requirements for running Drude on Windows:
-1. Windows 10 Professional / Enterprise / Education.
+1. Windows 10 Professional / Enterprise / Education
 </br>
 `Standard editions will not work with Native Docker because of missing Hyper-V in them` ([see details here](https://msdn.microsoft.com/en-us/virtualization/hyperv_on_windows/quick_start/walkthrough_compatibility)).
 <br/>
-I'm very sorry if you find this information for a first time and realized that you want to buy (he-he) Windows 10 Professional. 
-2. Hands
-3. Patience
+I'm very sorry if you find this information for a first time and realized that you want to buy (he-he) Windows 10 Professional.
+2. Hardware support of virtualization technology in your processor (all modern processors support it)
+3. Hands
+4. Patience
 
 ## Documentation: 
 - [For busiest people on planet. In short about all.](https://github.com/fat763/dwnd/blob/master/docs/for-busiest-people.md)
