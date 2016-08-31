@@ -17,6 +17,16 @@ This project is just a working example of web developer's local environment base
 - For web (especially [Drupal](https://drupal.org)) developers that uses Windows 10
 - For people who wants to use Docker as environment for local development but don't want to spend so much time for learning docker
 
+### List of containers that works out-of-box in `docker-compose.yml`
+- `web` - `Apache2 v2.2.22`
+- `cli` - `Debian v8.4` + `PHP v5.6.20` 
+<br/>
+It's actually real Debian with some preinstalled command line apps like `drush`, `drupal console`, etc. It's also used as PHP interpriter for `web` container.
+- `db` - `MySQL v5.5.46`
+- `browser` - `Selenium 2.47.1` + `Firefox headless` browser
+- `solr` - `Apache Solr v3.6.2`
+- `memcached` - `Memcached v3.0.8`
+
 ### Requirements for running Drude on Windows:
 1. Windows 10 Professional / Enterprise / Education
 </br>

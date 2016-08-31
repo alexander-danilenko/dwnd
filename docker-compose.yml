@@ -62,6 +62,8 @@ browser:
 solr:
   hostname: solr
   image: blinkreaction/drupal-solr:3.x-stable
+  #ports:
+  #  - 8983:8983
 
 # Memcached node
 # Uncomment the service definition section below and the link in the web service above to start using memcached.
