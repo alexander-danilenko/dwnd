@@ -1,3 +1,5 @@
+# This script destroys all containers described in docker-compose.yml with prompt.
+
 param (
   [string]$arguments = "--remove-orphans"
 )

@@ -1,3 +1,5 @@
+# This script pulls and runs all containers described in docker-compose.yml
+
 param (
   [string]$cli_container = "cli"
 )
