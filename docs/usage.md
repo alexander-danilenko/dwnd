@@ -8,6 +8,7 @@
 - For easier executing commands - do not write full commands like `.\up.ps1`, but just write `up` and hit `Tab` on your keyboard, Powershell will auto complete it for you and replace with needed command.
 - Project folder that contains `docker-compose.yml` file will be mounted as `/var/www/` to `cli` container.
 - `docker-compose.yml` is a file with settings for all ecosystem that you want to setup. It contains container names and their settings. Folders sharing settings also in there.
+<br />[See compose file syntax documentation](https://docs.docker.com/compose/compose-file/). 
 - `cli container` is for command line tools. Actually it's Debian, so play with it as you wish.
 
 ## First of all 
