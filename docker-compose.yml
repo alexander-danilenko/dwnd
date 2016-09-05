@@ -34,7 +34,7 @@ cli:
     - SSH_KEY_NAME=id_rsa
   #extra_hosts:
   #  # Additional hosts that appears on /etc/hosts of container.
-  #  - "demo.dwnd.dev:192.168.0.101"
+  #  - "demo:192.168.0.101"
 
 # DB node
 db:
@@ -57,13 +57,19 @@ db:
 browser:
   hostname: browser
   image: selenium/standalone-firefox:2.47.1
+  ports:
+    - 4444:4444
+  #extra_hosts:
+  #  # Additional hosts that appears on /etc/hosts of container.
+  #  - "demo:192.168.0.101"
+
 
 # Solr node
 solr:
   hostname: solr
   image: blinkreaction/drupal-solr:3.x-stable
-  #ports:
-  #  - 8983:8983
+  ports:
+    - 8983:8983
 
 # Memcached node
 # Uncomment the service definition section below and the link in the web service above to start using memcached.
