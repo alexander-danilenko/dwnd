@@ -38,29 +38,34 @@ It's pretty easy to initiate interactive terminal session:
 You can play with cli container: install apps using `sudo apt-get`, do some experiments and do whatever you want. And don't be afraid to break something, you always can destroy all containers and start from scratch.
 
 ## Getting into needed container's bash terminal
+As example let's open interactive sessions with `web` container's bash:
 <pre>.\bash.ps1 -container web</pre>
 Parameters:
 - `-container`: name of container that added to `docker-compose.yml` file.
+<br />Default value: `cli`
 
 ## Executing of command in bash 
+As example let's print content of `/etc/hosts` file of `cli` container:
 <pre>.\exec.ps1 -command "cat /etc/hosts" -container "cli"</pre>
 Parameters:
 - `-command`: command that should be executed. String that have linux bash syntax.
-<br />Defaults to: `ls -la`
+<br />Default value: `ls -la`
 - `-container`: name of container that added to `docker-compose.yml` file.
-<br />Defaults to: `cli`
+<br />Default value: `cli`
 
 ## Executing Drush commands
-You can open bash interactive session and execute commands directly from there. But just in case - here is script for this as well:
+First - you need to place your Drupal installation to `./docroot` folder of this repo.
 
+As example let's install Drupal site using `standard` installation profile:
 <pre>.\drush.ps1 -command "si -y standard" -site "demo" -docroot "/var/www/docroot"</pre>
 Parameters:
 - `-docroot`: path to docroot of Drupal installation.
-<br />Defaults to: `/var/www/docroot`
+<br />Default value: `/var/www/docroot`
 - `-site`: site folder that should be used for executing commands.
-<br />Defaults to: `default`
+<br />Default value: `default`
 - `-command`: command that should be executed in drush with all it's parameters.
-<br />Defaults to: `status`
+<br />Default value: `status`
+<br />**Note:** You can open bash interactive session and execute `drush` commands directly from there.
 
 ## Dropping of containers
 As you probably know - all containers are some kind of `ephemeral` and can be easily dropped and started from scratch in a few seconds. Dropping of containers means that `all data in containers will be lost` and on next start of containers they will not have any of your changes, just like you installed this containers from scratch. 
