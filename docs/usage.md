@@ -2,8 +2,8 @@
 
 ## General information
 - It works **only** with Docker for Windows **10** **Professional**, **Enterprise** or **Education** because only these editions of Windows 10 have possibility to use **Hyper-V**.
-- First of all enable hardware virtualization in your BIOS.
-- Install [Docker for Windows](https://docs.docker.com/docker-for-windows/) and enable Hyper-V as it wants.
+- Enable hardware virtualization in your BIOS.
+- Install [Docker for Windows](https://github.com/fat763/dwnd/blob/master/docs/setup.md) and enable Hyper-V as it wants.
 - Execute all commands in `powershell`. First navigate to folder with `docker-compose.yml` and then execute commands.
 - For easier executing commands - do not write full commands like `.\up.ps1`, but just write `up` and hit `Tab` on your keyboard, Powershell will auto complete it for you and replace with needed command.
 - `docker-compose.yml` is a file with settings for all ecosystem that you want to setup. It contains container names and their settings. Folders sharing settings also in there.
