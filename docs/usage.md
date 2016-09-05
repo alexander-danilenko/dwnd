@@ -69,7 +69,7 @@ Parameters:
 <br />Default value: `status`
 <br />**Note:** You can open bash interactive session and execute `drush` commands directly from there.
 
-## Dropping of containers
+## Destroying containers
 As you probably know - all containers are some kind of `ephemeral` and can be easily dropped and started from scratch in a few seconds. Dropping of containers means that `all data in containers will be lost` and on next start of containers they will not have any of your changes, just like you installed this containers from scratch. 
 <br />
 <br />
