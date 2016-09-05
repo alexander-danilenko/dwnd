@@ -6,6 +6,7 @@
 - Install [Docker for Windows](https://github.com/fat763/dwnd/blob/master/docs/setup.md) and enable Hyper-V as it wants.
 - Execute all commands in `powershell`. First navigate to folder with `docker-compose.yml` and then execute commands.
 - For easier executing commands - do not write full commands like `.\up.ps1`, but just write `up` and hit `Tab` on your keyboard, Powershell will auto complete it for you and replace with needed command.
+- Project folder that contains `docker-compose.yml` file will be mounted as `/var/www/` to `cli` container.
 - `docker-compose.yml` is a file with settings for all ecosystem that you want to setup. It contains container names and their settings. Folders sharing settings also in there.
 - `cli container` is for command line tools. Actually it's Debian, so play with it as you wish.
 
