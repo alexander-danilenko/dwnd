@@ -7,12 +7,12 @@ But if you are Microsoft Windows user - this repo is exactly what you have looke
 As you probably know it's pretty painfull to install and work with [Drude (Docker environment for Drupal)](https://github.com/blinkreaction/drude) on Windows. This hell with Vagrant and VirtualBox versions, virtual filesystems, very looong start/stop of containers because of complexity of Drude. Well, it's not a problem anymore! We can just use Drude's Docker containers in *Native Docker for Windows* and do whatever we want manually! Yay! If you are geek - you will love it, I promise.
 
 ## Blah blah blah, show me some useful things
-https://github.com/fat763/dwnd/blob/master/docs/for-busiest-people.md
+https://github.com/fat763/dwnd/blob/master/docs/usage.md
 
-### What is this project about
-This project is just a working example of web developer's local environment based on Windows Docker. Also it contains some documentation and useful tips. In general - it's just `docker-compose.yml` temlate with some useful things that i'm using for my projects. That's it.
+### WTF is it?
+This project is just a working example of web developer's local environment based on Windows Docker and few very small scripts that allows you to `start`,`stop`,`kill` and initiate interactive `bash` session with containers. Also it contains some documentation and useful tips. In general - it's just `docker-compose.yml` temlate with some useful scripts that i'm using for my projects. That's it.
 
-### For who this project was created?
+### For whom this project was created?
 - First of all - for myself. I'm using this template for each project that i'm working on
 - For web (especially [Drupal](https://drupal.org)) developers that uses Windows 10
 - For people who wants to use Docker as environment for local development but don't want to spend so much time for learning docker
@@ -38,9 +38,8 @@ I'm very sorry if you find this information for a first time and realized that y
 4. Patience
 
 ## Documentation: 
-- [For busiest people on planet. In short about all.](https://github.com/fat763/dwnd/blob/master/docs/for-busiest-people.md)
 - [How to setup Docker on Windows 10.](https://github.com/fat763/dwnd/blob/master/docs/setup.md)
-- [How to use Docker on Windows 10.](https://github.com/fat763/dwnd/blob/master/docs/usage.md)
+- [How to use DWND on Windows.](https://github.com/fat763/dwnd/blob/master/docs/usage.md)
 - (TBD) How to configure your own `docker-compose.yml`
 - (TBD) How to add some new containers.
 - (TBD) How to setup Drupal using this template
