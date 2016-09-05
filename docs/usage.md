@@ -39,7 +39,28 @@ You can play with cli container: install apps using `sudo apt-get`, do some expe
 
 ## Getting into needed container's bash terminal
 <pre>.\bash.ps1 -container web</pre>
-Where `web` is name of container that added to `docker-compose.yml` file.
+Parameters:
+- `-container`: name of container that added to `docker-compose.yml` file.
+
+## Executing of command in bash 
+<pre>.\exec.ps1 -command "cat /etc/hosts" -container "cli"</pre>
+Parameters:
+- `-command`: command that should be executed. String that have linux bash syntax.
+<br />Defaults to: `ls -la`
+- `-container`: name of container that added to `docker-compose.yml` file.
+<br />Defaults to: `cli`
+
+## Executing Drush commands
+You can open bash interactive session and execute commands directly from there. But just in case - here is script for this as well:
+
+<pre>.\drush.ps1 -command "si -y standard" -site "demo" -docroot "/var/www/docroot"</pre>
+Parameters:
+- `-docroot`: path to docroot of Drupal installation.
+<br />Defaults to: `/var/www/docroot`
+- `-site`: site folder that should be used for executing commands.
+<br />Defaults to: `default`
+- `-command`: command that should be executed in drush with all it's parameters.
+<br />Defaults to: `status`
 
 ## Dropping of containers
 As you probably know - all containers are some kind of `ephemeral` and can be easily dropped and started from scratch in a few seconds. Dropping of containers means that `all data in containers will be lost` and on next start of containers they will not have any of your changes, just like you installed this containers from scratch. 
