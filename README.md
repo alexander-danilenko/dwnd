@@ -17,19 +17,27 @@ I'm very sorry if you find this information for a first time and realized that y
 ## Drude Installation 
 You need to allow PowerShell modules to run in your system. For allowing it - just open `powershell as Administrator` and execute next: 
 
-<pre>Set-ExecutionPolicy RemoteSigned</pre>
+```powershell 
+Set-ExecutionPolicy RemoteSigned
+```
 
 Install Drude PowerShell module
 
-<pre>Install-Module Drude</pre>
+```powershell 
+Install-Module Drude
+```
 
 ## Drude Update
 Wanna some cool and tasty new features? 
-<pre>Update-Module Drude</pre>
+```powershell 
+Update-Module Drude
+```
 
 ## Drude Uninstall
 Hate this thing? Just remove it!
-<pre>Uninstall-Module Drude</pre>
+```powershell 
+Uninstall-Module Drude
+```
 
 ## Commands in Powershell module
 You can get list of commands using `Get-Command dsh-*` command in PowerShell. Anyway, below is list of commands.
@@ -46,11 +54,15 @@ All commands should be executed in folder with `docker-compose.yml`.
 - `dsh-drush` - Executes drush command for needed site in needed docroot folder
 - `dsh-destroy` - Drops all containers
 - `dsh-reset` - Drops all containers and starts containers from scratch
+- (TBD) 'dsh-init' - Executes init script placed in `.\.drude\scripts\drude-init.sh`
+- (TBD) 'dsh-behat' - Executes behat tests
 
 For more detailed descriptions see for [Usage documentation page](https://github.com/fat763/dwnd/blob/master/docs/usage.md).
 
 All commands are documented and you can see example of usage just use default PowerShell help: 
-<pre>help dsh-bash -examples</pre>
+```powershell 
+help dsh-bash -examples
+```
 
 ### List of containers that works out-of-box in `docker-compose.yml`
 - `web` - `Apache2 v2.2.22`
