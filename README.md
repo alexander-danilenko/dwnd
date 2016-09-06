@@ -30,8 +30,8 @@ All commands should be executed in folder with `docker-compose.yml`.
 - `dsh-restart` - Restarts containers
 - `dsh-status`, `dsh-ps` - Prints status of containers 
 - `dsh-logs` - Prints logs for all or needed container
-- `dsh-bash` - Initiates interactive bash shell session with cli (or any) other container
-- `dsh-exec` - Executes command in cli (or any) container's interactive bash shell
+- `dsh-bash` - Initiates interactive bash shell session with cli (or any other) container
+- `dsh-exec` - Executes command in cli (or any other) container's interactive bash shell
 - `dsh-drush` - Executes drush command for needed site in needed docroot folder
 - `dsh-destroy` - Drops all containers
 - `dsh-reset` - Drops all containers and starts containers from scratch
