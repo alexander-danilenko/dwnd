@@ -6,16 +6,40 @@ But if you are Microsoft Windows user - this repo is exactly what you have looke
 
 As you probably know it's pretty painfull to install and work with [Drude (Docker environment for Drupal)](https://github.com/blinkreaction/drude) on Windows. This hell with Vagrant and VirtualBox versions, virtual filesystems, very looong start/stop of containers because of complexity of Drude. Well, it's not a problem anymore! We can just use Drude's Docker containers in *Native Docker for Windows* and do whatever we want manually! Yay! If you are geek - you will love it, I promise.
 
-## Blah blah blah, show me some useful things
-https://github.com/fat763/dwnd/blob/master/docs/usage.md
+### Requirements for running Drude on Windows:
+1. Windows 10 Professional / Enterprise / Education
+</br>
+`Standard editions will not work with Native Docker because of missing Hyper-V in them` ([see details here](https://msdn.microsoft.com/en-us/virtualization/hyperv_on_windows/quick_start/walkthrough_compatibility)).
+<br/>
+I'm very sorry if you find this information for a first time and realized that you want to buy (he-he) Windows 10 Professional.
+2. Hardware support of virtualization technology in your processor (all modern processors support it)
 
-### WTF is it?
-This project is just a working example of web developer's local environment based on Windows Docker and few very small scripts that allows you to `start`,`stop`,`kill` and initiate interactive `bash` session with containers. Also it contains some documentation and useful tips. In general - it's just `docker-compose.yml` temlate with some useful scripts that i'm using for my projects. That's it.
+## Drude installation as powershell module
+- You need to allow `*.ps1` scripts to run in your system. For allowing it - just open `powershell as Administrator` and execute next: 
+<pre>Set-ExecutionPolicy RemoteSigned</pre>
+- Install Drude powershell module
+<pre>Install-Module Drude</pre>
 
-### For whom this project was created?
-- First of all - for myself. I'm using this template for each project that i'm working on
-- For web (especially [Drupal](https://drupal.org)) developers that uses Windows 10
-- For people who wants to use Docker as environment for local development but don't want to spend so much time for learning docker
+## Commands in Powershell module
+You can get list of commands using `Get-Command dsh-*` command in powershell. Anyway, below is list of commands.
+
+All commands should be executed in folder with `docker-compose.yml`.
+
+- `dsh-up` - Start containers
+- `dsh-down`, `dsh-stop` - Stops containers
+- `dsh-restart` - Restarts containers
+- `dsh-status`, `dsh-ps` - Prints status of containers 
+- `dsh-logs` - Prints logs for all or needed container
+- `dsh-bash` - Initiates interactive bash shell session with cli (or any) other container
+- `dsh-exec` - Executes command in cli (or any) container's interactive bash shell
+- `dsh-drush` - Executes drush command for needed site in needed docroot folder
+- `dsh-destroy` - Drops all containers
+- `dsh-reset` - Drops all containers and starts containers from scratch
+
+For more detailed descriptions see for [Usage documentation page](https://github.com/fat763/dwnd/blob/master/docs/usage.md).
+
+All commands are documented and you can see example of usage just use default PowerShell help: 
+<pre>help dsh-bash -examples</pre>
 
 ### List of containers that works out-of-box in `docker-compose.yml`
 - `web` - `Apache2 v2.2.22`
@@ -26,16 +50,6 @@ It's actually real Debian with some preinstalled command line apps like `drush`,
 - `browser` - `Selenium 2.47.1` + `Firefox headless` browser
 - `solr` - `Apache Solr v3.6.2`
 - `memcached` - `Memcached v3.0.8`
-
-### Requirements for running Drude on Windows:
-1. Windows 10 Professional / Enterprise / Education
-</br>
-`Standard editions will not work with Native Docker because of missing Hyper-V in them` ([see details here](https://msdn.microsoft.com/en-us/virtualization/hyperv_on_windows/quick_start/walkthrough_compatibility)).
-<br/>
-I'm very sorry if you find this information for a first time and realized that you want to buy (he-he) Windows 10 Professional.
-2. Hardware support of virtualization technology in your processor (all modern processors support it)
-3. Hands
-4. Patience
 
 ## Documentation: 
 - [How to setup Docker on Windows 10.](https://github.com/fat763/dwnd/blob/master/docs/setup.md)
