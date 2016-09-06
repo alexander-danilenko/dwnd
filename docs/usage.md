@@ -11,62 +11,51 @@
 <br />[See compose file syntax documentation](https://docs.docker.com/compose/compose-file/). 
 - `cli container` is for command line tools. Actually it's Debian, so play with it as you wish.
 
-## First of all 
-You need to allow `*.ps1` scripts to run in your system. For allowing it - just open `powershell as Admin` and execute next: 
-<pre>
-Set-ExecutionPolicy RemoteSigned
-</pre>
-Answer `Yes` to prompt and that's it. 
+## One-time steps
+- You need to allow `*.ps1` scripts to run in your system. For allowing it - just open `powershell as Administrator` and execute next: 
+<pre>Set-ExecutionPolicy RemoteSigned</pre>
+- Install Drude powershell module
+<pre>Install-Module Drude</pre>
+
+Answer `Yes` to all prompts and that's it! You can use commands listed below. 
+
+## List of Drude commands
+<pre>Get-Command dsh-*</pre>
 
 ## Starting of containers
-<pre>.\up.ps1</pre>
+<pre>dsh-up</pre>
 
 ## Stopping of containers
-<pre>.\stop.ps1</pre>
+<pre>dsh-stop</pre>
 
 ## Restarting of containers
-<pre>.\restart.ps1</pre>
+<pre>dsh-restart</pre>
 
 ## Getting status of containers
-<pre>.\status.ps1</pre>
+<pre>dsh-status</pre>
 
 ## Getting into `cli` container's bash terminal
 So, just starting and stopping containers is not so fun as it was before. Let's just run `cli` container's bash terminal and do whatever we want from there. `cli` container is used for handling as many console things that will be heplful for work as possible. For example `cli` container already have `drush` and `drupal console`, some `nodejs`, `ruby` and many other things. It means that you will not want to install all these things into your Windows system, they are all in here, in `cli` container.
 
 It's pretty easy to initiate interactive terminal session:  
 
-<pre>.\bash.ps1</pre>
+<pre>dsh-bash</pre>
 
 You can play with cli container: install apps using `sudo apt-get`, do some experiments and do whatever you want. And don't be afraid to break something, you always can destroy all containers and start from scratch.
 
 ## Getting into needed container's bash terminal
 As example let's open interactive sessions with `web` container's bash:
-<pre>.\bash.ps1 -container web</pre>
-Parameters:
-- `-container`: name of container that added to `docker-compose.yml` file.
-<br />Default value: `cli`
+<pre>dsh-bash web</pre>
 
 ## Executing of command in bash 
 As example let's print content of `/etc/hosts` file of `cli` container:
-<pre>.\exec.ps1 -command "cat /etc/hosts" -container "cli"</pre>
-Parameters:
-- `-command`: command that should be executed. String that have linux bash syntax.
-<br />Default value: `ls -la`
-- `-container`: name of container that added to `docker-compose.yml` file.
-<br />Default value: `cli`
+<pre>dsh-exec "cat /etc/hosts" cli</pre>
 
 ## Executing Drush commands
 First - you need to place your Drupal installation to `./docroot` folder of this repo.
 
-As example let's install Drupal site using `standard` installation profile:
-<pre>.\drush.ps1 -command "si -y standard" -site "demo" -docroot "/var/www/docroot"</pre>
-Parameters:
-- `-docroot`: path to docroot of Drupal installation.
-<br />Default value: `/var/www/docroot`
-- `-site`: site folder that should be used for executing commands.
-<br />Default value: `default`
-- `-command`: command that should be executed in drush with all it's parameters.
-<br />Default value: `status`
+As example let's install Drupal site using `standard` installation profile in `docroot/sites/default` folder:
+<pre>dsh-drush "si -y standard" default</pre>
 <br />**Note:** You can open bash interactive session and execute `drush` commands directly from there.
 
 ## Destroying containers
@@ -74,5 +63,4 @@ As you probably know - all containers are some kind of `ephemeral` and can be ea
 <br />
 <br />
 **Warning**: in `docker-compose.yml` we have `db` container which brings to us MySQL database. If we drop containers, we will loose all data in that container that was added to database by us or our favorite CMS. Other words - there will be no MySQL databases after dropping of containers. So use containers dropping very carefully, you may lose your databases data.
-
-<pre>.\destroy.ps</pre>
+<pre>dsh-destroy</pre>
