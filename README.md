@@ -54,8 +54,8 @@ All commands should be executed in folder with `docker-compose.yml`.
 - `dsh-drush` - Executes drush command for needed site in needed docroot folder
 - `dsh-destroy` - Drops all containers
 - `dsh-reset` - Drops all containers and starts containers from scratch
+- `dsh-behat` - Executes Behat tests
 - (TBD) 'dsh-init' - Executes init script placed in `.\.drude\scripts\drude-init.sh`
-- (TBD) 'dsh-behat' - Executes behat tests
 
 For more detailed descriptions see for [Usage documentation page](https://github.com/fat763/dwnd/blob/master/docs/usage.md).
 
