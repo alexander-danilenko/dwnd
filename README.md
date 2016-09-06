@@ -74,7 +74,7 @@ All commands are documented and you can see example of usage just use default Po
 help dsh-bash -examples
 ```
 
-### List of containers that works out-of-box in `docker-compose.yml`
+## List of containers that works out-of-box in `docker-compose.yml`
 - `web` - Apache2 v2.2.22
 - `cli` - Debian v8.4 + PHP v5.6.20 
 <br/>
@@ -86,7 +86,8 @@ It's actually real Debian with some preinstalled command line apps like `drush`,
 
 ## Documentation: 
 - [How to setup Docker on Windows 10.](https://github.com/fat763/dwnd/blob/master/docs/setup.md)
-- [How to use DWND on Windows.](https://github.com/fat763/dwnd/blob/master/docs/usage.md)
+- [Drude Powershell Module usage](https://github.com/fat763/dwnd/blob/master/docs/usage.md)
+- (TBD) How to create new project based on DWND
 - (TBD) How to configure your own `docker-compose.yml`
 - (TBD) How to add some new containers.
 - (TBD) How to setup Drupal using this template
