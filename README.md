@@ -17,6 +17,12 @@ I'm very sorry if you find this information for a first time and realized that y
 2. Hardware support of virtualization technology in your processor (all modern processors support it)
 
 ## Drude Powershell Module
+**Drude Powershell module** is just a collection of PowerShell commands that works the same as in original [Drude](https://github.com/blinkreaction/drude). 
+
+Module is available in PowershellGallery: https://www.powershellgallery.com/packages/Drude
+
+It means that you don't need to install any additional sofrware for install/update/uninstall Drude PowerShell module. Pretty cool, hah?
+
 ### Installation
 You need to allow PowerShell modules to run in your system. For allowing it - just open `powershell as Administrator` and execute next: 
 
