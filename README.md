@@ -40,7 +40,7 @@ Uninstall-Module Drude
 ```
 
 ## Commands in Powershell module
-You can get list of commands using `Get-Command dsh-*` command in PowerShell. Anyway, below is list of commands.
+You can get list of commands using `Get-Command dsh-*` command in PowerShell. Anyway, below you can find list of commands. You are welcome.
 
 All commands should be executed in folder with `docker-compose.yml`.
 
