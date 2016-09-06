@@ -73,7 +73,7 @@ All commands should be executed in folder with `docker-compose.yml`.
 | `dsh-init-dwnd`           | Downloads this repo to current folder into `dwnd` subfolder                   |
 | (TBD) 'dsh-init'          | Executes init script placed in `.\.drude\scripts\drude-init.sh`               |
 
-For more detailed descriptions see for [Usage documentation page](https://github.com/fat763/dwnd/blob/master/docs/usage.md).
+For more detailed descriptions see for [Drude Powershell Module usage documentation page](https://github.com/fat763/dwnd/blob/master/docs/usage.md).
 
 All commands are documented and you can see example of usage just use default PowerShell help: 
 ```powershell 
