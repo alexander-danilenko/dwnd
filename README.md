@@ -48,19 +48,21 @@ Anyway, below you can find list of commands. You are welcome.
 
 All commands should be executed in folder with `docker-compose.yml`.
 
-- `dsh-up` - Start containers
-- `dsh-down`, `dsh-stop` - Stops containers
-- `dsh-restart` - Restarts containers
-- `dsh-status`, `dsh-ps` - Prints status of containers 
-- `dsh-logs` - Prints logs for all or needed container
-- `dsh-bash` - Initiates interactive bash shell session with cli (or any other) container
-- `dsh-exec` - Executes command in cli (or any other) container's interactive bash shell
-- `dsh-drush` - Executes drush command for needed site in needed docroot folder
-- `dsh-destroy` - Drops all containers
-- `dsh-reset` - Drops all containers and starts containers from scratch
-- `dsh-behat` - Executes Behat tests
-- `dsh-init-dwnd` - Downloads this repo to current folder into `dwnd` subfolder
-- (TBD) 'dsh-init' - Executes init script placed in `.\.drude\scripts\drude-init.sh`
+| Comand                    | Description                                                                   |
+| ------------------------- | ----------------------------------------------------------------------------- |
+| `dsh-up`                  | Start containers                                                              |
+| `dsh-down`, `dsh-stop`    | Stops containers                                                              |
+| `dsh-restart`             | Restarts containers                                                           |
+| `dsh-status`, `dsh-ps`    | Prints status of containers                                                   |
+| `dsh-logs`                | Prints logs for all or needed container                                       |
+| `dsh-bash`                | Initiates interactive bash shell session with cli (or any other) container    |
+| `dsh-exec`                | Executes command in cli (or any other) container's interactive bash shell     |
+| `dsh-drush`               | Executes drush command for needed site in needed docroot folder               |
+| `dsh-destroy`             | Drops all containers                                                          |
+| `dsh-reset`               | Drops all containers and starts containers from scratch                       |
+| `dsh-behat`               | Executes Behat tests                                                          |
+| `dsh-init-dwnd`           | Downloads this repo to current folder into `dwnd` subfolder                   |
+| (TBD) 'dsh-init'          | Executes init script placed in `.\.drude\scripts\drude-init.sh`               |
 
 For more detailed descriptions see for [Usage documentation page](https://github.com/fat763/dwnd/blob/master/docs/usage.md).
 
