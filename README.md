@@ -14,14 +14,25 @@ As you probably know it's pretty painfull to install and work with [Drude (Docke
 I'm very sorry if you find this information for a first time and realized that you want to buy (he-he) Windows 10 Professional.
 2. Hardware support of virtualization technology in your processor (all modern processors support it)
 
-## Drude installation as powershell module
-- You need to allow `*.ps1` scripts to run in your system. For allowing it - just open `powershell as Administrator` and execute next: 
+## Drude Installation 
+You need to allow PowerShell modules to run in your system. For allowing it - just open `powershell as Administrator` and execute next: 
+
 <pre>Set-ExecutionPolicy RemoteSigned</pre>
-- Install Drude powershell module
+
+Install Drude PowerShell module
+
 <pre>Install-Module Drude</pre>
 
+## Drude Update
+Wanna some cool and tasty new features? 
+<pre>Update-Module Drude</pre>
+
+## Drude Uninstall
+Hate this thing? Just remove it!
+<pre>Uninstall-Module Drude</pre>
+
 ## Commands in Powershell module
-You can get list of commands using `Get-Command dsh-*` command in powershell. Anyway, below is list of commands.
+You can get list of commands using `Get-Command dsh-*` command in PowerShell. Anyway, below is list of commands.
 
 All commands should be executed in folder with `docker-compose.yml`.
 
