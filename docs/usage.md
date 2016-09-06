@@ -39,13 +39,13 @@ Hate this thing? Just remove it!
 Uninstall-Module Drude
 ```
 
+## Commands
 ### Getting all available commands
 After installation of Drude PowerShell module you can get list of commands using next command in PowerShell:
 ```powershell
 Get-Command dsh-*
 ```
 
-## Commands
 ### Starting of containers
 ```powershell
 dsh-up
