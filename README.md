@@ -1,12 +1,14 @@
-# DWND = **D**rude on **W**indows **N**ative **D**ocker
+# **D**rude on **W**indows **N**ative **D**ocker
 
 If you are happy *Mac* or *Linux* user - you can close this page, there is no helpful information for you, just do what you do as before, you rocks! :) 
 
-But if you are Microsoft Windows user - this repo is exactly what you have looked for if you wanted to run your local web-development environment using Docker.
+But if you are **Microsoft Windows 10** user - this repo is exactly what you have looked for if you wanted to run your local web-development environment using Docker.
 
-As you probably know it's pretty painfull to install and work with [Drude (Docker environment for Drupal)](https://github.com/blinkreaction/drude) on Windows. This hell with Vagrant and VirtualBox versions, virtual filesystems, very looong start/stop of containers because of complexity of Drude. Well, it's not a problem anymore! We can just use Drude's Docker containers in *Native Docker for Windows* and do whatever we want manually! Yay! If you are geek - you will love it, I promise.
+As you probably know it's pretty painfull to install and work with [Drude](https://github.com/blinkreaction/drude) (Docker environment for Drupal) on Windows. This hell with Vagrant and VirtualBox versions, virtual filesystems, very looong start/stop of containers because of complexity of Drude. Well, it's not a problem anymore! We can just use Drude's Docker containers in **Native Docker for Windows** and do whatever we want manually! Yay!
 
-### Requirements for running Drude on Windows:
+Just remember, **Drude PowerShell module and all this repo contents are not official parts of Drude! It's just workaround for Windows 10 users who suffered long enough.** 
+
+### Requirements for running Drude Powershell module on Windows:
 1. Windows 10 Professional / Enterprise / Education
 </br>
 `Standard editions will not work with Native Docker because of missing Hyper-V in them` ([see details here](https://msdn.microsoft.com/en-us/virtualization/hyperv_on_windows/quick_start/walkthrough_compatibility)).
@@ -14,7 +16,8 @@ As you probably know it's pretty painfull to install and work with [Drude (Docke
 I'm very sorry if you find this information for a first time and realized that you want to buy (he-he) Windows 10 Professional.
 2. Hardware support of virtualization technology in your processor (all modern processors support it)
 
-## Drude Installation 
+## Drude Powershell Module
+### Installation
 You need to allow PowerShell modules to run in your system. For allowing it - just open `powershell as Administrator` and execute next: 
 
 ```powershell 
@@ -27,19 +30,19 @@ Install Drude PowerShell module
 Install-Module Drude
 ```
 
-## Drude Update
+### Update
 Wanna some cool and tasty new features? 
 ```powershell 
 Update-Module Drude
 ```
 
-## Drude Uninstall
+### Uninstall
 Hate this thing? Just remove it!
 ```powershell 
 Uninstall-Module Drude
 ```
 
-## Commands in Powershell module
+### Commands
 You can get list of commands using next command in PowerShell:
 ```powershell
 Get-Command dsh-*
@@ -72,14 +75,14 @@ help dsh-bash -examples
 ```
 
 ### List of containers that works out-of-box in `docker-compose.yml`
-- `web` - `Apache2 v2.2.22`
-- `cli` - `Debian v8.4` + `PHP v5.6.20` 
+- `web` - Apache2 v2.2.22
+- `cli` - Debian v8.4 + PHP v5.6.20 
 <br/>
 It's actually real Debian with some preinstalled command line apps like `drush`, `drupal console`, etc. It's also used as PHP interpriter for `web` container.
-- `db` - `MySQL v5.5.46`
-- `browser` - `Selenium 2.47.1` + `Firefox headless` browser
-- `solr` - `Apache Solr v3.6.2`
-- `memcached` - `Memcached v3.0.8`
+- `db` - MySQL v5.5.46
+- `browser` - Selenium 2.47.1 + Firefox headless browser
+- `solr` - Apache Solr v3.6.2
+- `memcached` - Memcached v3.0.8
 
 ## Documentation: 
 - [How to setup Docker on Windows 10.](https://github.com/fat763/dwnd/blob/master/docs/setup.md)

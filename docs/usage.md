@@ -1,4 +1,4 @@
-# Usage of DWND
+# Drude Powershell Module usage
 
 ## General information
 - It works **only** with Docker for Windows **10** **Professional**, **Enterprise** or **Education** because only these editions of Windows 10 have possibility to use **Hyper-V**.
@@ -10,44 +10,63 @@
 <br />[See compose file syntax documentation](https://docs.docker.com/compose/compose-file/). 
 - `cli container` is for command line tools. Actually it's Debian, so play with it as you wish.
 
-## One-time steps
-- You need to allow `*.ps1` scripts to run in your system. For allowing it - just open `powershell as Administrator` and execute next: 
-```powershell
+## Drude Powershell Module
+### Installation
+You need to allow PowerShell modules to run in your system. For allowing it - just open `powershell as Administrator` and execute next: 
+
+```powershell 
 Set-ExecutionPolicy RemoteSigned
 ```
-- Install Drude powershell module
-```powershell
+
+Install Drude PowerShell module
+
+```powershell 
 Install-Module Drude
 ```
 
-Answer `Yes` to all prompts and that's it! You can use commands listed below. 
+That's it! Now you can execute any command listed in this repo.
 
-## List of Drude commands
+
+### Update
+Wanna some cool and tasty new features? 
+```powershell 
+Update-Module Drude
+```
+
+### Uninstall
+Hate this thing? Just remove it!
+```powershell 
+Uninstall-Module Drude
+```
+
+### Getting all available commands
+After installation of Drude PowerShell module you can get list of commands using next command in PowerShell:
 ```powershell
 Get-Command dsh-*
 ```
 
-## Starting of containers
+## Commands
+### Starting of containers
 ```powershell
 dsh-up
 ```
 
-## Stopping of containers
+### Stopping of containers
 ```powershell
 dsh-stop
 ```
 
-## Restarting of containers
+### Restarting of containers
 ```powershell
 dsh-restart
 ```
 
-## Getting status of containers
+### Getting status of containers
 ```powershell
 dsh-status
 ```
 
-## Getting into `cli` container's bash terminal
+### Getting into `cli` container's bash terminal
 So, just starting and stopping containers is not so fun as it was before. Let's just run `cli` container's bash terminal and do whatever we want from there. `cli` container is used for handling as many console things that will be heplful for work as possible. For example `cli` container already have `drush` and `drupal console`, some `nodejs`, `ruby` and many other things. It means that you will not want to install all these things into your Windows system, they are all in here, in `cli` container.
 
 It's pretty easy to initiate interactive terminal session:  
@@ -58,19 +77,19 @@ dsh-bash
 
 You can play with cli container: install apps using `sudo apt-get`, do some experiments and do whatever you want. And don't be afraid to break something, you always can destroy all containers and start from scratch.
 
-## Getting into needed container's bash terminal
+### Getting into needed container's bash terminal
 As example let's open interactive sessions with `web` container's bash:
 ```powershell
 dsh-bash web
 ```
 
-## Executing of command in bash 
+### Executing of command in bash 
 As example let's print content of `/etc/hosts` file of `cli` container:
 ```powershell
 dsh-exec "cat /etc/hosts" cli
 ```
 
-## Executing Drush commands
+### Executing Drush commands
 First - you need to place your Drupal installation to `./docroot` folder of this repo.
 
 As example let's install Drupal site using `standard` installation profile in `docroot/sites/default` folder:
@@ -79,7 +98,7 @@ dsh-drush "si -y standard" default
 ```
 <br />**Note:** You can open bash interactive session and execute `drush` commands directly from there.
 
-## Destroying containers
+### Destroying containers
 As you probably know - all containers are some kind of `ephemeral` and can be easily dropped and started from scratch in a few seconds. Dropping of containers means that `all data in containers will be lost` and on next start of containers they will not have any of your changes, just like you installed this containers from scratch. 
 <br />
 <br />
@@ -87,3 +106,15 @@ As you probably know - all containers are some kind of `ephemeral` and can be ea
 ```powershell
 dsh-destroy
 ```
+
+### Run Behat tests
+```powershell
+dsh-behat "--tags=@d7"
+```
+
+## Download DWND
+Wanna download this repo to some folder? Easy! 
+```powershell
+dsh-init-dwnd foldername
+```
+This command will download current repo that contains `docker-compose.yml` and other useful templates to `foldername` folder.
