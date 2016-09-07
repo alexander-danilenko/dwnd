@@ -55,7 +55,7 @@ Get-Command dsh-*
 ```
 Anyway, below you can find list of commands. You are welcome.
 
-All commands should be executed in folder with `docker-compose.yml`.
+All commands should be executed in folder with `docker-compose.yml`. Other words - in root directory of current repo.
 
 | Comand                    | Description                                                                   |
 | ------------------------- | ----------------------------------------------------------------------------- |
