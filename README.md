@@ -61,7 +61,10 @@ Well, i understand that it's pretty unsafe to use this credentials everywhere, b
 - [http://localhost/](http://localhost/) 
 - [https://localhost/](https://localhost/) 
 
-## Drude Powershell Module
+- - -
+# Drude Powershell Module
+![Drude Powershell Module Preview image](http://armarium.org/u/2016/09/07/d18823bd8b993399fc7ed440c5125824.png)
+
 Of course if you are Docker-ninja you can just use pre-configured `docker-compose.yml` file using docker if you know what to do. Well done then, you are rockstar! :+1:
 
 But if you are not so good skileld Docker-ninja, you can just install unofficial [Drude Powershell Module](https://github.com/fat763/drude-powershell-module) and use simplified commands for working with this repo.
