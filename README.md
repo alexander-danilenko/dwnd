@@ -23,7 +23,7 @@ It's actually real Debian with some preinstalled command line apps like `drush`,
 - `memcached` - Memcached v3.0.8
 
 ## Drude Powershell Module
-Of course if you are Docker-ninja you can just use pre-configured `docker-compose.yml` file using docker if you know what to do. 
+Of course if you are Docker-ninja you can just use pre-configured `docker-compose.yml` file using docker if you know what to do. Well done then, you are rockstar! :+1:
 
 But if you are not so good skileld Docker-ninja, you can just install unofficial [Drude Powershell Module](https://github.com/fat763/drude-powershell-module) and use simplified commands for working with this repo.
 
