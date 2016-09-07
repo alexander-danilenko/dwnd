@@ -22,6 +22,41 @@ It's actually real Debian with some preinstalled command line apps like `drush`,
 - `solr` - Apache Solr v3.6.2
 - `memcached` - Memcached v3.0.8
 
+## Usage
+### General information
+#### Ports
+Almost all containers after start will forward their ports to your host's machine ports. It means that if you have Apache2 or MySQL servers running in your Windows - Docker will not be able to start and use needed ports because they are already used by your Windows apps. 
+#### Hosts
+Also as you can see in compose file - `cli` container have `links` section. It means that every linked container will be added to `/etc/hosts` of `cli` container with it's own IP address which points to domain with container name. 
+
+It allows any container can be easily accessed from `cli` container using it's container name as host. 
+
+For example: 
+- For mysql database configuration use `db` - as host for accessing database in Drupal settings
+- For Memcached configuration use `memcached` - as host for Memcached Drupal module settings
+- For Apache Solr configuration use`solr` - as host for Apache Solr Drupal module settings
+
+Just keep in mind - **Windows Apps** can use `localhost` as host for any container's port, but for **code that runs inside containers** you should use **container names as their hosts**.
+
+### Code
+All folder with `docker-compose.yml` will be mounted to `cli` and `web` containers as `/var/www`. So place Drupal distribution to `docroot` folder of repo.
+### Database
+For connecting to MySQL you can use any tool like [MySQL WorkBench](https://www.mysql.com/products/workbench/), [SQLyog](https://github.com/webyog/sqlyog-community/wiki/Downloads) or my favorite [Navicat for MySQL](https://www.navicat.com/products/navicat-for-mysql). Surely, you can use [phpMyAdmin](https://www.phpmyadmin.net/) by just copying it to `docroot` folder of this repo.
+
+#### Credentials for connecting to MySQL in **Windows tools**:
+- Host: `localhost`
+- Port: `3306`
+- User: `root`
+- Password: `admin123`
+
+#### Credentials for connecting to MySQL in **Drupal**:
+- Host: `db` 
+- Port: `3306`
+- User: `root`
+- Password: `admin123`
+
+Well, i understand that it's pretty unsafe to use this credentials everywhere, but you can set your own in `docker-compose.yml`.
+
 ## Drude Powershell Module
 Of course if you are Docker-ninja you can just use pre-configured `docker-compose.yml` file using docker if you know what to do. Well done then, you are rockstar! :+1:
 
