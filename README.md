@@ -1,6 +1,6 @@
 # **D**rude on **W**indows **N**ative **D**ocker
 
-![DWND Preview image](http://armarium.org/u/2016/09/07/7af6aad8587f65796f33eaaae660601f.png)
+![DWND Preview image](http://armarium.org/u/2016/09/07/e4a0cfa6a75ba8e6c5e7294d431898d9.png)
 
 If you are **Microsoft Windows 10** user - this repo is exactly what you have looked for if you wanted to run your local Drupal-development environment using Docker!
 
