@@ -1,6 +1,6 @@
 # **D**rude on **W**indows **N**ative **D**ocker
 
-![DWND Preview image](http://armarium.org/u/2016/09/07/76e2f4cfd2a21d737c7d131a4ae0b39d.png)
+![DWND Preview image](http://armarium.org/u/2016/09/07/7af6aad8587f65796f33eaaae660601f.png)
 
 If you are happy *Mac* or *Linux* user - you can close this page, there is no helpful information for you, just do what you do as before, you rocks! :) 
 
