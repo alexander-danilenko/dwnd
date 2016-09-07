@@ -1,5 +1,7 @@
 # **D**rude on **W**indows **N**ative **D**ocker
 
+![DWND Preview image](http://armarium.org/u/2016/09/07/d18823bd8b993399fc7ed440c5125824.png)
+
 If you are happy *Mac* or *Linux* user - you can close this page, there is no helpful information for you, just do what you do as before, you rocks! :) 
 
 But if you are **Microsoft Windows 10** user - this repo is exactly what you have looked for if you wanted to run your local web-development environment using Docker.
