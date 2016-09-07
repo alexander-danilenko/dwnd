@@ -118,7 +118,7 @@ dsh-destroy
 dsh-behat "--tags=@d7"
 ```
 
-## Download DWND
+## Download DWND template project
 Wanna download this repo to some folder? Easy! 
 ```powershell
 dsh-init-dwnd foldername

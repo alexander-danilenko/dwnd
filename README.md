@@ -2,53 +2,36 @@
 
 ![DWND Preview image](http://armarium.org/u/2016/09/07/7af6aad8587f65796f33eaaae660601f.png)
 
-If you are happy *Mac* or *Linux* user - you can close this page, there is no helpful information for you, just do what you do as before, you rocks! :) 
+If you are **Microsoft Windows 10** user - this repo is exactly what you have looked for if you wanted to run your local Drupal-development environment using Docker!
 
-But if you are **Microsoft Windows 10** user - this repo is exactly what you have looked for if you wanted to run your local web-development environment using Docker.
-
-As you probably know it's pretty painfull to install and work with [Drude](https://github.com/blinkreaction/drude) (Docker environment for Drupal) on Windows. This hell with Vagrant and VirtualBox versions, virtual filesystems, very looong start/stop of containers because of complexity of Drude. Well, it's not a problem anymore! We can just use Drude's Docker containers in **Native Docker for Windows** and do whatever we want manually! Yay!
+As you probably know it's pretty painful to install and work with [original Drude: Docker environment for Drupal](https://github.com/blinkreaction/drude) on Windows. This hell with Vagrant and VirtualBox versions, virtual filesystems, very looong start/stop of containers because of complexity of [original Drude](https://github.com/blinkreaction/drude)... Well, it's not a problem anymore! We can just use Drude's Docker containers in **Native Docker for Windows** and do whatever we want manually! Yay!
 
 Just remember, **Drude PowerShell module and all this repo contents are not official parts of Drude! It's just workaround for Windows 10 users who suffered long enough.** 
 
-### Requirements for running Drude Powershell module on Windows:
-1. Windows 10 Professional / Enterprise / Education
+## Requirements for running DWND:
+**Windows 10 Professional / Enterprise / Education**
 </br>
 `Standard editions will not work with Native Docker because of missing Hyper-V in them` ([see details here](https://msdn.microsoft.com/en-us/virtualization/hyperv_on_windows/quick_start/walkthrough_compatibility)).
 <br/>
 I'm very sorry if you find this information for a first time and realized that you want to buy (he-he) Windows 10 Professional.
-2. Hardware support of virtualization technology in your processor (all modern processors support it)
 
 ## Drude Powershell Module
-**Drude Powershell module** is just a collection of PowerShell commands that works the same as in original [Drude](https://github.com/blinkreaction/drude). 
+Of course if you are Docker-ninja you can just use pre-configured `docker-compose.yml` file using docker if you know what to do. 
 
-Module is available in PowershellGallery: https://www.powershellgallery.com/packages/Drude
+But if you are not so good skileld Docker-ninja, you can just install unofficial [Drude Powershell Module](https://github.com/fat763/drude-powershell-module) and use simplified commands for working with this repo.
 
-It means that you don't need to install any additional sofrware for install/update/uninstall Drude PowerShell module. Pretty cool, hah?
+**[Drude Powershell Module](https://github.com/fat763/drude-powershell-module)** is just a collection of PowerShell functions that works the same as in original [Drude](https://github.com/blinkreaction/drude). 
 
-### Installation
-You need to allow PowerShell modules to run in your system. For allowing it - just open `powershell as Administrator` and execute next: 
+Powershell Module is available in PowershellGallery: https://www.powershellgallery.com/packages/Drude. It means that you don't need to install any additional software for install/update/uninstall Drude PowerShell module. Pretty cool, hah?
+
+### Installation, Update, Uninstallation of Powershell module
+First of all, for using Drude Powershell Module you need to allow PowerShell modules to run in your system and only then install Drude PowerShell module. For doing this just open `powershell as Administrator` and execute next: 
 
 ```powershell 
 Set-ExecutionPolicy RemoteSigned
-```
-
-Install Drude PowerShell module
-
-```powershell 
 Install-Module Drude
 ```
-
-### Update
-Wanna some cool and tasty new features? 
-```powershell 
-Update-Module Drude
-```
-
-### Uninstall
-Hate this thing? Just remove it!
-```powershell 
-Uninstall-Module Drude
-```
+That's it. Now you can use `dsh-*` commands. Also Drude PowerShell module is regular PowerShell module, it means that you can use `Install-Module`, `Update-Module` and `Uninstall-Module`.
 
 ### Commands
 You can get list of commands using next command in PowerShell:
@@ -79,10 +62,10 @@ For more detailed descriptions see for [Drude Powershell Module usage documentat
 
 All commands are documented and you can see example of usage just use default PowerShell help: 
 ```powershell 
-help dsh-bash -examples
+Get-Help dsh-bash -examples
 ```
 
-## List of containers that works out-of-box in `docker-compose.yml`
+## `docker-compose.yml` contents:
 - `web` - Apache2 v2.2.22
 - `cli` - Debian v8.4 + PHP v5.6.20 
 <br/>
@@ -95,7 +78,6 @@ It's actually real Debian with some preinstalled command line apps like `drush`,
 ## Documentation: 
 - [How to setup Docker on Windows 10.](https://github.com/fat763/dwnd/blob/master/docs/setup.md)
 - [Drude Powershell Module usage](https://github.com/fat763/dwnd/blob/master/docs/usage.md)
-- (TBD) How to create new project based on DWND
 - (TBD) How to configure your own `docker-compose.yml`
 - (TBD) How to add some new containers.
 - (TBD) How to setup Drupal using this template
