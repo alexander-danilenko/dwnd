@@ -57,6 +57,9 @@ For connecting to MySQL you can use any tool like [MySQL WorkBench](https://www.
 
 Well, i understand that it's pretty unsafe to use this credentials everywhere, but you can set your own in `docker-compose.yml`.
 
+### Accessing Drupal site
+http://localhost/ 
+
 ## Drude Powershell Module
 Of course if you are Docker-ninja you can just use pre-configured `docker-compose.yml` file using docker if you know what to do. Well done then, you are rockstar! :+1:
 
