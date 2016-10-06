@@ -59,9 +59,10 @@ services:
   # Selenium2 node.
   browser:
     hostname: browser
-    image: selenium/standalone-firefox:2.47.1
+    image: selenium/standalone-firefox-debug
     ports:
       - 4444:4444
+      - 5900:5900 # Use 'secret' as a password for connectin via VNC to this port.
     extra_hosts:
       # Additional hosts that appears on /etc/hosts of container.
       - "demo:192.168.0.101"
