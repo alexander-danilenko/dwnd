@@ -43,6 +43,7 @@ services:
   db:
     hostname: db
     image: percona:5.5.52
+    #image: docksal/mysql:5.5
     ports:
       # Port forwarding will use your port in Windows. So be sure that you have no MySQL running in Windows.
       - 3306:3306
