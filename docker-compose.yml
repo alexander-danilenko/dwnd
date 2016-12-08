@@ -19,6 +19,8 @@ services:
   cli:
     hostname: cli
     image: docksal/cli:stable
+    ports:
+      - "2221:22"
     volumes:
       - "./:/var/www"  # Map current directory to /var/www
       # Add some custom configuration files.
