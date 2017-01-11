@@ -62,6 +62,8 @@ services:
   browser:
     hostname: browser
     image: selenium/standalone-chrome-debug
+    volumes:
+    - "./:/var/www"
     ports:
       - 4444:4444
       - 5900:5900 # Use 'secret' as a password for connectin via VNC to this port.
