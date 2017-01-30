@@ -18,7 +18,8 @@ services:
   # Used for PHP-FPM, all console commands and tools.
   cli:
     hostname: cli
-    image: docksal/cli:stable
+    #image: docksal/cli:php7 # PHP 7.0.15
+    image: docksal/cli:php5 # PHP 5.6.29
     ports:
       - "2221:22"
     volumes:
