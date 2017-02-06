@@ -38,6 +38,7 @@ services:
     environment:
       # Optional. Specify a custom SSH RSA key name if necessary. Defaults to 'id_rsa'.
       - SSH_KEY_NAME=id_rsa
+      - XDEBUG_ENABLED=1
     extra_hosts:
       ## Additional hosts that appears on /etc/hosts of container.
       - "host:${HOST_IP}"
