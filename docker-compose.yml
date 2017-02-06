@@ -31,8 +31,6 @@ services:
       - ".drude/etc/php5/php-cli.ini:/etc/php5/cli/conf.d/z_php.ini"  # PHP CLI configuration overrides
       - ".drude/etc/mysql/my.cnf:/etc/mysql/conf.d/z_my.cnf"          # MySQL configuration overrides
       - "~/.ssh:/home/docker/.ssh"                                    # SSH keys mapping to containers ~/.ssh.
-    environment:
-      - XDEBUG_ENABLED=1
     extra_hosts:
       # Additional hosts that appears on /etc/hosts of container.
       - "host:${HOST_IP}"
