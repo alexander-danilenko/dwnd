@@ -2,50 +2,44 @@ version: '2'
 services:
   # Apache2 server node.
   web:
+    env_file: .env
     hostname: web
     image: docksal/apache:2.2-stable
     #image: docksal/apache:2.4-stable
-    volumes_from: 
-      - cli
-    links:
-      - cli
     ports:
       # Port forwarding will use your port in Windows. So be sure that you have nothing on 80 and 443 port.
       # Usually these ports used by skype and `server` service in Windows.
       - 80:80
       - 443:443
+    links:
+      - cli
+    volumes_from:
+      - cli
 
   # CLI node.
   # Used for PHP-FPM, all console commands and tools.
   cli:
+    env_file: .env
     hostname: cli
     #image: docksal/cli:php7 # PHP 7.0.15
     image: docksal/cli:php5 # PHP 5.6.29
     ports:
-      - "2221:22"
+      - "2221:22" # SSH Port
     volumes:
-      - "./:/var/www"  # Map current directory to /var/www
-      # Add some custom configuration files.
+      - "./:/var/www"                                                 # Map current directory to /var/www
       - ".drude/etc/php5/php.ini:/etc/php5/fpm/conf.d/z_php.ini"      # PHP FPM configuration overrides
       - ".drude/etc/php5/php-cli.ini:/etc/php5/cli/conf.d/z_php.ini"  # PHP CLI configuration overrides
       - ".drude/etc/mysql/my.cnf:/etc/mysql/conf.d/z_my.cnf"          # MySQL configuration overrides
-      # SSH keys mapping to containers ~/.ssh.
-      - ~/.ssh:/home/docker/.ssh
-    links:
-      - db
-      - memcached
-      - solr
-      - browser
+      - "~/.ssh:/home/docker/.ssh"                                    # SSH keys mapping to containers ~/.ssh.
     environment:
-      # Optional. Specify a custom SSH RSA key name if necessary. Defaults to 'id_rsa'.
-      - SSH_KEY_NAME=id_rsa
       - XDEBUG_ENABLED=1
     extra_hosts:
-      ## Additional hosts that appears on /etc/hosts of container.
+      # Additional hosts that appears on /etc/hosts of container.
       - "host:${HOST_IP}"
 
   # MySQL database node.
   db:
+    env_file: .env
     hostname: db
     image: percona:5.5
     #image: percona:5.6
@@ -63,35 +57,50 @@ services:
       - MYSQL_USER=drupal
       - MYSQL_PASSWORD=123
       - MYSQL_DATABASE=drupal
-    volumes_from: 
+    extra_hosts:
+      - "host:${HOST_IP}"
+    links:
+      - cli
+    volumes_from:
       - cli
 
   # Selenium2 node.
   browser:
+    env_file: .env
     hostname: browser
     image: selenium/standalone-chrome-debug
-    volumes_from: 
-      - cli
     ports:
       - 4444:4444
       - 5900:5900 # Use 'secret' as a password for connectin via VNC to this port.
     extra_hosts:
-      # Additional hosts that appears on /etc/hosts of container.
       - "host:${HOST_IP}"
+    links:
+      - cli
+    volumes_from:
+      - cli
 
   # Solr node.
   solr:
+    env_file: .env
     hostname: solr
     image: docksal/solr:3.x-stable
     ports:
       - 8983:8983
+    extra_hosts:
+      - "host:${HOST_IP}"
+    links:
+      - cli
 
   # Memcached node.
   memcached:
+    env_file: .env
     hostname: memcached
     image: memcached
     environment:
-      # Memcached memory limit in megabytes
-      - MEMCACHED_MEMORY_LIMIT=128
+      - MEMCACHED_MEMORY_LIMIT=128 # Memcached memory limit in megabytes
+    extra_hosts:
+      - "host:${HOST_IP}"
     ports:
       - 11211:11211
+    links:
+      - cli
