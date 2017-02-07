@@ -21,16 +21,18 @@ services:
   cli:
     env_file: .env
     hostname: cli
-    #image: docksal/cli:php7 # PHP 7.0.15
-    image: docksal/cli:php5 # PHP 5.6.29
+    image: docksal/cli:edge      # PHP 5.6.29
+   #image: docksal/cli:edge-php7 # PHP 7.0.15
     ports:
       - "2221:22" # SSH Port
     volumes:
-      - "./:/var/www"                                                 # Map current directory to /var/www
-      - ".drude/etc/php5/php.ini:/etc/php5/fpm/conf.d/z_php.ini"      # PHP FPM configuration overrides
-      - ".drude/etc/php5/php-cli.ini:/etc/php5/cli/conf.d/z_php.ini"  # PHP CLI configuration overrides
-      - ".drude/etc/mysql/my.cnf:/etc/mysql/conf.d/z_my.cnf"          # MySQL configuration overrides
-      - "~/.ssh:/home/docker/.ssh"                                    # SSH keys mapping to containers ~/.ssh.
+      - "./:/var/www"                                                    # Map current directory to /var/www
+      - ".drude/etc/php5/php.ini:/etc/php5/fpm/conf.d/z_php.ini"         # PHP5 FPM configuration overrides
+      - ".drude/etc/php5/php-cli.ini:/etc/php5/cli/conf.d/z_php.ini"     # PHP5 CLI configuration overrides
+      #- ".drude/etc/php5/php.ini:/etc/php/7.0/fpm/conf.d/z_php.ini"     # PHP7 FPM configuration overrides
+      #- ".drude/etc/php5/php-cli.ini:/etc/php/7.0/cli/conf.d/z_php.ini" # PHP7 CLI configuration overrides
+      - ".drude/etc/mysql/my.cnf:/etc/mysql/conf.d/z_my.cnf"             # MySQL configuration overrides
+      - "~/.ssh:/home/docker/.ssh"                                       # SSH keys mapping to containers ~/.ssh.
     extra_hosts:
       # Additional hosts that appears on /etc/hosts of container.
       - "host:${HOST_IP}"
