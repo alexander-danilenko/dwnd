@@ -50,9 +50,9 @@ services:
       - 3306:3306
     environment:
       # MySQL credentials.
-      - MYSQL_ROOT_PASSWORD=admin123
+      - MYSQL_ROOT_PASSWORD=root
       - MYSQL_USER=drupal
-      - MYSQL_PASSWORD=123
+      - MYSQL_PASSWORD=drupal
       - MYSQL_DATABASE=drupal
     extra_hosts:
       - "host:${HOST_IP}"
