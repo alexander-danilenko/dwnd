@@ -86,7 +86,7 @@ First of all, for using Drude Powershell Module you need to allow PowerShell mod
 
 ```powershell 
 Set-ExecutionPolicy RemoteSigned
-Install-Module Drude
+Install-Module Drude -MaximumVersion 1.1.7
 ```
 That's it. Now you can use `dsh-*` commands. Also Drude PowerShell module is regular PowerShell module, it means that you can use `Install-Module`, `Update-Module` and `Uninstall-Module`.
 
