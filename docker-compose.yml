@@ -29,9 +29,9 @@ services:
     ports:
       - "2221:22" # SSH Port
     volumes:
-      - "./                         :/var/www"                               # Map current directory to /var/www
-      - ".docksal/etc/mysql/my.cnf  :/etc/mysql/conf.d/z_my.cnf"             # MySQL configuration overrides
-      - "~/.ssh                     :/home/docker/.ssh"                      # SSH keys mapping to container's ~/.ssh.
+      - "./:/var/www"                                           # Map current directory to /var/www
+      - ".docksal/etc/mysql/my.cnf:/etc/mysql/conf.d/z_my.cnf"  # MySQL configuration overrides
+      - "~/.ssh:/home/docker/.ssh"                              # SSH keys mapping to container's ~/.ssh.
     extra_hosts:
       # Additional hosts that appears on /etc/hosts of container.
       - "host:${HOST_IP}"
