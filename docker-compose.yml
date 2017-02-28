@@ -1,11 +1,12 @@
-version: '2'
+version: '2.1'
+
 services:
   # Apache2 server node.
   web:
     env_file: .env
     hostname: web
-    image: docksal/apache:2.2-stable
-    #image: docksal/apache:2.4-stable
+    image: docksal/web:edge-apache2.2
+  # image: docksal/web:edge-apache2.4
     ports:
       # Port forwarding will use your port in Windows. So be sure that you have nothing on 80 and 443 port.
       # Usually these ports used by skype and `server` service in Windows.
@@ -15,6 +16,8 @@ services:
       - cli
     volumes_from:
       - cli
+    extra_hosts:
+      - "host:${HOST_IP}"
 
   # CLI node.
   # Used for PHP-FPM, all console commands and tools.
@@ -22,54 +25,43 @@ services:
     env_file: .env
     hostname: cli
     image: docksal/cli:edge      # PHP 5.6.29
-   #image: docksal/cli:edge-php7 # PHP 7.0.15
+  # image: docksal/cli:edge-php7 # PHP 7.0.15
     ports:
       - "2221:22" # SSH Port
     volumes:
-      - "./:/var/www"                                                    # Map current directory to /var/www
-      - ".drude/etc/php5/php.ini:/etc/php5/fpm/conf.d/z_php.ini"         # PHP5 FPM configuration overrides
-      - ".drude/etc/php5/php-cli.ini:/etc/php5/cli/conf.d/z_php.ini"     # PHP5 CLI configuration overrides
-      #- ".drude/etc/php5/php.ini:/etc/php/7.0/fpm/conf.d/z_php.ini"     # PHP7 FPM configuration overrides
-      #- ".drude/etc/php5/php-cli.ini:/etc/php/7.0/cli/conf.d/z_php.ini" # PHP7 CLI configuration overrides
-      - ".drude/etc/mysql/my.cnf:/etc/mysql/conf.d/z_my.cnf"             # MySQL configuration overrides
-      - "~/.ssh:/home/docker/.ssh"                                       # SSH keys mapping to containers ~/.ssh.
+      - "./                         :/var/www"                               # Map current directory to /var/www
+      - ".docksal/etc/mysql/my.cnf  :/etc/mysql/conf.d/z_my.cnf"             # MySQL configuration overrides
+      - "~/.ssh                     :/home/docker/.ssh"                      # SSH keys mapping to container's ~/.ssh.
     extra_hosts:
       # Additional hosts that appears on /etc/hosts of container.
       - "host:${HOST_IP}"
 
-  # MySQL database node.
+  # Database (MySQL)
   db:
     env_file: .env
     hostname: db
     image: docksal/db:1.0-mysql-5.5
-    #image: docksal/db:1.0-mysql-5.6
-    #image: docksal/db:1.0-mysql-5.7
-    #image: docksal/db:1.0-mysql-8.0
-    #image: percona:5.5
-    #image: percona:5.6
-    #image: percona:5.7
-    #image: mariadb:5.5
+  # image: docksal/db:1.0-mysql-5.6
+  # image: docksal/db:1.0-mysql-5.7
+  # image: docksal/db:1.0-mysql-8.0
+  # image: percona:5.5
+  # image: percona:5.6
+  # image: percona:5.7
     ports:
-      # Port forwarding will use your port in Windows. So be sure that you have no MySQL running in Windows.
-      - 3306:3306
-    environment:
-      # MySQL credentials.
-      - MYSQL_ROOT_PASSWORD=root
-      - MYSQL_USER=drupal
-      - MYSQL_PASSWORD=drupal
-      - MYSQL_DATABASE=drupal
-    extra_hosts:
-      - "host:${HOST_IP}"
+      - "3306:3306"
     links:
       - cli
     volumes_from:
       - cli
+    extra_hosts:
+      - "host:${HOST_IP}"
 
   # Selenium2 node.
   browser:
     env_file: .env
     hostname: browser
-    image: selenium/standalone-chrome-debug
+    image: selenium/standalone-chrome-debug:latest
+  # image: selenium/standalone-firefox-debug:latest
     ports:
       - 4444:4444
       - 5900:5900 # Use 'secret' as a password for connectin via VNC to this port.
@@ -80,25 +72,24 @@ services:
     volumes_from:
       - cli
 
-  # Solr node.
+  # Solr
   solr:
     env_file: .env
     hostname: solr
-    image: docksal/solr:3.x-stable
-    ports:
-      - 8983:8983
-    extra_hosts:
-      - "host:${HOST_IP}"
+  # image: docksal/solr:1.0-solr3
+    image: docksal/solr:1.0-solr4
     links:
       - cli
+    volumes_from:
+      - cli
+    extra_hosts:
+      - "host:${HOST_IP}"
 
   # Memcached node.
   memcached:
     env_file: .env
     hostname: memcached
     image: memcached
-    environment:
-      - MEMCACHED_MEMORY_LIMIT=128 # Memcached memory limit in megabytes
     extra_hosts:
       - "host:${HOST_IP}"
     ports:
