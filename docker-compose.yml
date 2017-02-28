@@ -56,43 +56,43 @@ services:
     extra_hosts:
       - "host:${HOST_IP}"
 
-  # Selenium2 node.
-  browser:
-    env_file: .env
-    hostname: browser
-    image: selenium/standalone-chrome-debug:latest
-  # image: selenium/standalone-firefox-debug:latest
-    ports:
-      - 4444:4444
-      - 5900:5900 # Use 'secret' as a password for connectin via VNC to this port.
-    extra_hosts:
-      - "host:${HOST_IP}"
-    links:
-      - cli
-    volumes_from:
-      - cli
+  # # Selenium2 node.
+  # browser:
+  #   env_file: .env
+  #   hostname: browser
+  #   image: selenium/standalone-chrome-debug:latest
+  # # image: selenium/standalone-firefox-debug:latest
+  #   ports:
+  #     - 4444:4444
+  #     - 5900:5900 # Use 'secret' as a password for connectin via VNC to this port.
+  #   extra_hosts:
+  #     - "host:${HOST_IP}"
+  #   links:
+  #     - cli
+  #   volumes_from:
+  #     - cli
 
-  # Solr
-  solr:
-    env_file: .env
-    hostname: solr
-  # image: docksal/solr:1.0-solr3
-    image: docksal/solr:1.0-solr4
-    links:
-      - cli
-    volumes_from:
-      - cli
-    extra_hosts:
-      - "host:${HOST_IP}"
+  # # Solr
+  # solr:
+  #   env_file: .env
+  #   hostname: solr
+  # # image: docksal/solr:1.0-solr3
+  #   image: docksal/solr:1.0-solr4
+  #   links:
+  #     - cli
+  #   volumes_from:
+  #     - cli
+  #   extra_hosts:
+  #     - "host:${HOST_IP}"
 
-  # Memcached node.
-  memcached:
-    env_file: .env
-    hostname: memcached
-    image: memcached
-    extra_hosts:
-      - "host:${HOST_IP}"
-    ports:
-      - 11211:11211
-    links:
-      - cli
+  # # Memcached node.
+  # memcached:
+  #   env_file: .env
+  #   hostname: memcached
+  #   image: memcached
+  #   extra_hosts:
+  #     - "host:${HOST_IP}"
+  #   ports:
+  #     - 11211:11211
+  #   links:
+  #     - cli
