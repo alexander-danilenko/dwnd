@@ -24,13 +24,16 @@ services:
   cli:
     env_file: .env
     hostname: cli
-    image: docksal/cli:edge      # PHP 5.6.29
+    image: docksal/cli:1.0-php5
+  # image: docksal/cli:1.0-php7
   # image: docksal/cli:edge-php7 # PHP 7.0.15
     ports:
       - "2221:22" # SSH Port
     volumes:
       - "./:/var/www"                                           # Map current directory to /var/www
       - ".docksal/etc/mysql/my.cnf:/etc/mysql/conf.d/z_my.cnf"  # MySQL configuration overrides
+      - ".docksal/etc/php/php.ini:/etc/php5/fpm/conf.d/z_php.ini"
+      - ".docksal/etc/php/php-cli.ini:/etc/php5/cli/conf.d/z_php.ini"
       - "~/.ssh:/home/docker/.ssh"                              # SSH keys mapping to container's ~/.ssh.
     extra_hosts:
       # Additional hosts that appears on /etc/hosts of container.
