@@ -96,6 +96,6 @@ services:
   #   extra_hosts:
   #     - "host:${HOST_IP}"
   #   ports:
-  #     - 11211:11211
+  #     - 11211
   #   links:
   #     - cli
