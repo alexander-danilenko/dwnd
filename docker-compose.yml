@@ -5,8 +5,8 @@ services:
   web:
     env_file: .env
     hostname: web
-    image: docksal/web:edge-apache2.2
-  # image: docksal/web:edge-apache2.4
+    image: docksal/web:1.0-apache2.2
+  # image: docksal/web:1.0-apache2.4
     ports:
       # Port forwarding will use your port in Windows. So be sure that you have nothing on 80 and 443 port.
       # Usually these ports used by skype and `server` service in Windows.
