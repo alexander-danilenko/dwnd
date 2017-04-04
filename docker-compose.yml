@@ -10,8 +10,8 @@ services:
     ports:
       # Port forwarding will use your port in Windows. So be sure that you have nothing on 80 and 443 port.
       # Usually these ports used by skype and `server` service in Windows.
-      - 80:80
-      - 443:443
+      - "80:80"
+      - "443:443"
     links:
       - cli
     volumes_from:
@@ -66,8 +66,8 @@ services:
   #   image: selenium/standalone-chrome-debug:latest
   # # image: selenium/standalone-firefox-debug:latest
   #   ports:
-  #     - 4444:4444
-  #     - 5900:5900 # Use 'secret' as a password for connectin via VNC to this port.
+  #     - "4444:4444"
+  #     - "5900:5900" # Use 'secret' as a password for connectin via VNC to this port.
   #   extra_hosts:
   #     - "host:${HOST_IP}"
   #   links:
@@ -96,6 +96,6 @@ services:
   #   extra_hosts:
   #     - "host:${HOST_IP}"
   #   ports:
-  #     - 11211
+  #     - "11211"
   #   links:
   #     - cli
