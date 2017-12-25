@@ -13,38 +13,17 @@ This project is mostly about `docker-compose.yml`. This file describes environme
 
 ## DWND Usage
 1. Clone current repo
-2. Install [Drude Powershell Module](https://github.com/fat763/drude-powershell-module)
-3. Execure all `dsh-*` commands in root directory (that contains `docker-compose.yml` file) of recently cloned repo.
+2. Navigate in terminal to repo directory (that contains `docker-compose.yml`)
+2. Use `docker-compose` commands work with `docker-compose.yml` just as with any other compose file.
 
-### Drude Powershell Module commands
-You can get list of all commands using next command in PowerShell:
-```powershell
-Get-Command dsh-*
-```
-Anyway, below you can find list of commands. You are welcome.
-
-All commands should be executed in folder with `docker-compose.yml`. Other words - in root directory of current repo.
-
-| Comand                    | Description                                                                   |
-| ------------------------- | ----------------------------------------------------------------------------- |
-| `dsh-up`                  | Start containers                                                              |
-| `dsh-down`, `dsh-stop`    | Stops containers                                                              |
-| `dsh-restart`             | Restarts containers                                                           |
-| `dsh-status`, `dsh-ps`    | Prints status of containers                                                   |
-| `dsh-logs`                | Prints logs for all or needed container                                       |
-| `dsh-bash`                | Initiates interactive bash shell session with cli (or any other) container    |
-| `dsh-exec`                | Executes command in cli (or any other) container's interactive bash shell     |
-| `dsh-drush`               | Executes drush command for needed site in needed docroot folder               |
-| `dsh-destroy`             | Drops all containers                                                          |
-| `dsh-reset`               | Drops all containers and starts containers from scratch                       |
-| `dsh-behat`               | Executes Behat tests in `.\tests\behat\features` folder                         |
-
+**OR** you can install [Drude Powershell Module](https://github.com/alexander-danilenko/drude-powershell-module) and execute all `dsh-*` commands (drude-like commands) in repo root directory (that contains `docker-compose.yml` file).
+For **Drude Powershell Module usage examples** see [wiki](https://github.com/alexander-danilenko/dwnd/wiki/Drude-Powershell-Module-usage).
 
 ## General information
 ### Ports
 All containers after start will forward their ports to your host's machine ports. It means that if you have Apache2 or MySQL servers running in your Windows - Docker will not be able to start and use needed ports because they are already used by your Windows apps. 
 
-### Folder mounting
+### Directories mounting
 All folder with `docker-compose.yml` will be mounted to all containers as `/var/www`. So place Drupal distribution to `docroot` repo's folder.
 
 ## MySQL Credentials
@@ -68,7 +47,7 @@ Just open in your favorite browser one of next urls:
 - [https://localhost/](https://localhost/) 
 
 ## Documentation: 
-See [DWND Wiki](https://github.com/fat763/dwnd/wiki) for documentation.
+See [DWND Wiki](https://github.com/alexander-danilenko/dwnd/wiki) for documentation.
 - - -
 ### License
 
